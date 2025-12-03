@@ -24,6 +24,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -50,7 +51,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MarkdownRenderer(modifier: Modifier = Modifier) {
     val context = LocalContext.current
-    var markdownContent by remember { mutableStateOf<String?>(null) }
+    var markdownContent by rememberSaveable { mutableStateOf<String?>(null) }
 
     val launcher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.GetContent()
